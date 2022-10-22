@@ -8,10 +8,10 @@ class Cadastro(Tk):
     def __init__(self ) -> None:
         super().__init__()
 
-        self.frame_foto = Frame(self,bg='red',width=600,height=190)
+        self.frame_foto = Frame(self,bg='#00bfff',width=600,height=190)
         self.frame_foto.pack()
 
-        self.texto = Label(self.frame_foto,text='cadastro de pessoas ',font=('arial 15 bold'),bg='red',fg='white')
+        self.texto = Label(self.frame_foto,text='cadastro de pessoas ',font=('arial 15 bold'),bg='#00bfff',fg='white')
         self.texto.place(relx=0.30,rely=0.01)
 
         self.origem = Image.open('usuario10.png')
@@ -21,10 +21,14 @@ class Cadastro(Tk):
         self.label_foto = Label(self.frame_foto,image=self.origem)
         self.label_foto.place(x=5,y=30,relwidth=0.25,relheight=0.80)
 
-        self.bt_img = Button(self.frame_foto,text='imagem',width=10,command=self.dados_imag)
-        self.bt_img.place(x=170,y=151)
+        self.bt_img = Button(self.frame_foto,text='Imagem',width=10,command=self.dados_imag,fg='white')
+        self.bt_img.config(font='arial 10')
+        self.bt_img.config(bg='#4682b4')
+        self.bt_img.place(x=160,y=151)
 
-        self.bt_DELETA = Button(self.frame_foto,text='Excluir',width=10,command=self.deleta_img)
+        self.bt_DELETA = Button(self.frame_foto,text='Excluir',width=10,command=self.deleta_img,fg='white')
+        self.bt_DELETA.config(bg='#4682b4')
+        self.bt_DELETA.config(font='arial 10')
         self.bt_DELETA.place(x=260,y=151)
 
     def dados_imag(self):
@@ -42,13 +46,14 @@ class Cadastro(Tk):
             self.label_foto['image'] = img
 
     def deleta_img(self):
-        pass
+        self.label_foto['image'] = self.origem
 
 
 
 
 if __name__=='__main__':
     ja = Cadastro()
+    ja['bg'] = '#dcdcdc'
     ja.geometry('600x640+400+10')
     ja.resizable(0,0)
     ja.mainloop()
