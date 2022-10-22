@@ -8,6 +8,11 @@ class Cadastro(Tk):
     def __init__(self ) -> None:
         super().__init__()
 
+        self.primeiro()
+        self.frame_dados()
+
+    def primeiro(self):
+
         self.frame_foto = Frame(self,bg='#00bfff',width=600,height=190)
         self.frame_foto.pack()
 
@@ -30,6 +35,11 @@ class Cadastro(Tk):
         self.bt_DELETA.config(bg='#4682b4')
         self.bt_DELETA.config(font='arial 10')
         self.bt_DELETA.place(x=260,y=151)
+
+    def frame_dados(self):
+
+        self.frame_get_dados = Frame(self,width=600,height=30,bg='blue')
+        self.frame_get_dados.pack()
 
     def dados_imag(self):
         global foto,img
