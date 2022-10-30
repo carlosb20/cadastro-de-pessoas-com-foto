@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 from PIL import Image,ImageTk
+from tkinter import ttk
 
 foto = b''
 
@@ -10,6 +11,7 @@ class Cadastro(Tk):
 
         self.primeiro()
         self.frame_dados()
+        self.treev_tabela()
 
     def primeiro(self):
 
@@ -38,8 +40,23 @@ class Cadastro(Tk):
 
     def frame_dados(self):
 
-        self.frame_get_dados = Frame(self,width=600,height=30,bg='blue')
+        self.frame_get_dados = Frame(self,width=600,height=200,bg='blue')
         self.frame_get_dados.pack()
+
+        self.label_nome = Label(self.frame_get_dados,text='Nome',font=('arial 12'),bg='blue',fg='white')
+        self.label_nome.place(x =5,y = 6)
+
+        self.entry_nome = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_nome.place(x=60,y=6)
+
+    def treev_tabela(self):
+
+        self.trevv = ttk.Treeview(self,columns=['nome','cpf'],show='headings')
+        
+        self.trevv.heading('nome',text='nome')
+        self.trevv.heading('cpf',text='cpf')
+
+        self.trevv.pack()
 
     def dados_imag(self):
         global foto,img
