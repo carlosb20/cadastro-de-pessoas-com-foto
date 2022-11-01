@@ -49,6 +49,20 @@ class Cadastro(Tk):
         self.entry_nome = Entry(self.frame_get_dados,font=('arial 13'),width=30)
         self.entry_nome.place(x=60,y=6)
 
+        self.label_cpf = Label(self.frame_get_dados,text='Cpf',bg='blue',fg='white',font=('arial 12'))
+        self.label_cpf.place(x=5,y=40)
+
+        self.entry_cpf = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_cpf.place(x=60,y=40)
+
+        self.label_rg = Label(self.frame_get_dados,text='RG',bg='blue',fg='white',font=('arial 12'))
+        self.label_rg.place(x=5,y=80)
+
+        self.entry_rg = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_rg.place(x=60,y=80)
+
+
+
     def treev_tabela(self):
 
         self.trevv = ttk.Treeview(self,columns=['nome','cpf'],show='headings')
