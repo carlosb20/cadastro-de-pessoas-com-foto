@@ -70,6 +70,8 @@ class Cadastro(Tk):
         self.trevv.heading('nome',text='nome')
         self.trevv.heading('cpf',text='cpf')
 
+        
+
         self.trevv.pack()
 
     def dados_imag(self):
