@@ -61,14 +61,21 @@ class Cadastro(Tk):
         self.entry_rg = Entry(self.frame_get_dados,font=('arial 13'),width=30)
         self.entry_rg.place(x=60,y=80)
 
+        self.label_email = Label(self.frame_get_dados,text='Egmail',bg='blue',fg='white',font=('arial 12'))
+        self.label_email.place(x=5,y=120)
+
+        self.entry_egmail = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_egmail.place(x=60,y=120)
+
 
 
     def treev_tabela(self):
 
-        self.trevv = ttk.Treeview(self,columns=['nome','cpf'],show='headings')
+        self.trevv = ttk.Treeview(self,columns=['nome','cpf','rg'],show='headings')
         
         self.trevv.heading('nome',text='nome')
         self.trevv.heading('cpf',text='cpf')
+        self.trevv.heading('rg',text='RG')
 
         
 
@@ -97,6 +104,6 @@ class Cadastro(Tk):
 if __name__=='__main__':
     ja = Cadastro()
     ja['bg'] = '#dcdcdc'
-    ja.geometry('600x640+400+10')
-    ja.resizable(0,0)
+    ja.geometry('800x640+400+10')
+    #ja.resizable(0,0)
     ja.mainloop()
