@@ -80,10 +80,10 @@ class Cadastro(Tk):
         self.trevv.heading('cpf',text='cpf')
         self.trevv.heading('rg',text='RG')
         self.trevv.heading('email',text='E-mail')
-
         self.trevv.column('email',width=180)
 
-        self.barra = ttk.Scrollbar(self.frame_trev,orient='vertical')
+        self.barra = ttk.Scrollbar(self.frame_trev)
+        
 
         self.trevv.config(yscrollcommand=self.barra.set)
         self.barra.config(command=self.trevv.yview)
