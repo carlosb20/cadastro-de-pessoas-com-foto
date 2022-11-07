@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.filedialog import askopenfilename
 from PIL import Image,ImageTk
 from tkinter import ttk
+from tkinter import messagebox
 
 foto = b''
 
@@ -68,6 +69,8 @@ class Cadastro(Tk):
         self.entry_egmail.place(x=60,y=120)
 
         self.bt_enviar = Button(self.frame_get_dados,text='Enviar',font=('arial 13'),width=8)
+        self.bt_enviar.config(cursor='hand2')
+        self.bt_enviar.config(overrelief='groove')
         self.bt_enviar.config(command=self.get_dados)
         self.bt_enviar.place(x=500,y=30)
 
@@ -75,15 +78,14 @@ class Cadastro(Tk):
 
         self.trevv = ttk.Treeview(self,columns=['nome','cpf','rg','email'],show='headings')
         
-        self.trevv.heading('nome',text='nome')
+        self.trevv.heading('nome',text='nome',anchor='w')
         self.trevv.heading('cpf',text='cpf')
         self.trevv.heading('rg',text='RG')
         self.trevv.heading('email',text='E-mail')
         self.trevv.column('email',width=180)
-
+    
         self.barra = ttk.Scrollbar(self)
         
-
         self.trevv.config(yscrollcommand=self.barra.set)
         self.barra.config(command=self.trevv.yview)
 
@@ -92,7 +94,7 @@ class Cadastro(Tk):
 
         
     def get_dados(self):
-        if self.entry_nome.get() :
+        if self.entry_nome.get() != '' and self.entry_cpf.get() != '' and self.entry_rg.get() != '' and self.entry_egmail.get() != '' :
             self.trevv.insert('','end',values=(self.entry_nome.get(),
                 self.entry_cpf.get(),
                 self.entry_rg.get(),
@@ -103,6 +105,8 @@ class Cadastro(Tk):
             self.entry_rg.delete(0,'end')
             self.entry_egmail.delete(0,'end')
             self.entry_nome.focus()
+        else:
+            messagebox.showerror('ERRO !','Preencha o Espaço Vazio')
 
     def dados_imag(self):
         global foto,img
