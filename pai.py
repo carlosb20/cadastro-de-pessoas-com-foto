@@ -67,14 +67,13 @@ class Cadastro(Tk):
         self.entry_egmail = Entry(self.frame_get_dados,font=('arial 13'),width=30)
         self.entry_egmail.place(x=60,y=120)
 
-
+        self.bt_enviar = Button(self.frame_get_dados,text='Enviar',font=('arial 13'),width=8)
+        self.bt_enviar.config(command=self.get_dados)
+        self.bt_enviar.place(x=500,y=30)
 
     def treev_tabela(self):
 
-        self.frame_trev = Frame(self)
-        self.frame_trev.pack(fill='x')
-
-        self.trevv = ttk.Treeview(self.frame_trev,columns=['nome','cpf','rg','email'],show='headings')
+        self.trevv = ttk.Treeview(self,columns=['nome','cpf','rg','email'],show='headings')
         
         self.trevv.heading('nome',text='nome')
         self.trevv.heading('cpf',text='cpf')
@@ -82,17 +81,28 @@ class Cadastro(Tk):
         self.trevv.heading('email',text='E-mail')
         self.trevv.column('email',width=180)
 
-        self.barra = ttk.Scrollbar(self.frame_trev)
+        self.barra = ttk.Scrollbar(self)
         
 
         self.trevv.config(yscrollcommand=self.barra.set)
         self.barra.config(command=self.trevv.yview)
 
-        self.trevv.grid(row=0,column=0)
-        self.barra.grid(row=0,column=1)
+        self.trevv.place(x=1,y=391,relheight=0.39)
+        self.barra.place(x=784,y=393,relheight=0.38,relwidth=0.02)
 
-        for a in range(0,100):
-            self.trevv.insert('','end',values=a)
+        
+    def get_dados(self):
+        if self.entry_nome.get() :
+            self.trevv.insert('','end',values=(self.entry_nome.get(),
+                self.entry_cpf.get(),
+                self.entry_rg.get(),
+                self.entry_egmail.get()))
+
+            self.entry_nome.delete(0,'end')
+            self.entry_cpf.delete(0,'end')
+            self.entry_rg.delete(0,'end')
+            self.entry_egmail.delete(0,'end')
+            self.entry_nome.focus()
 
     def dados_imag(self):
         global foto,img
