@@ -44,6 +44,7 @@ class Cadastro(Tk):
         self.frame_get_dados = Frame(self,width=600,height=200,bg='blue')
         self.frame_get_dados.pack(fill='x')
 
+
         self.label_nome = Label(self.frame_get_dados,text='Nome',font=('arial 12'),bg='blue',fg='white')
         self.label_nome.place(x =5,y = 6)
 
@@ -67,12 +68,18 @@ class Cadastro(Tk):
 
         self.entry_egmail = Entry(self.frame_get_dados,font=('arial 13'),width=30)
         self.entry_egmail.place(x=60,y=120)
-
-        self.bt_enviar = Button(self.frame_get_dados,text='Enviar',font=('arial 13'),width=8)
+        #------------------------------------------------------------------------
+        self.bt_enviar = Button(self.frame_get_dados,text='Enviar',font=('arial 13'),width=20,bg='orange',fg='black')
         self.bt_enviar.config(cursor='hand2')
         self.bt_enviar.config(overrelief='groove')
         self.bt_enviar.config(command=self.get_dados)
-        self.bt_enviar.place(x=500,y=30)
+        self.bt_enviar.place(x=10,y=160)
+
+        self.bt_limpa = Button(self.frame_get_dados,text='Limpa',font=('arial 13'),width=20,bg='orange',fg='black')
+        self.bt_limpa.config(cursor='hand2')
+        self.bt_limpa.config(overrelief='groove')
+        self.bt_limpa.config(command=self.get_dados)
+        self.bt_limpa.place(x=230,y=160)
 
     def treev_tabela(self):
 
