@@ -73,13 +73,25 @@ class Cadastro(Tk):
         self.bt_enviar.config(cursor='hand2')
         self.bt_enviar.config(overrelief='groove')
         self.bt_enviar.config(command=self.get_dados)
-        self.bt_enviar.place(x=10,y=160)
+        self.bt_enviar.place(x=6,y=160)
 
         self.bt_limpa = Button(self.frame_get_dados,text='Limpa',font=('arial 13'),width=20,bg='orange',fg='black')
         self.bt_limpa.config(cursor='hand2')
         self.bt_limpa.config(overrelief='groove')
-        self.bt_limpa.config(command=self.get_dados)
-        self.bt_limpa.place(x=230,y=160)
+        #self.bt_limpa.config(command=self.get_dados)
+        self.bt_limpa.place(x=205,y=160)
+
+        self.bt_atualiza = Button(self.frame_get_dados,text='Atualizar',font=('arial 13'),width=20,bg='orange',fg='black')
+        self.bt_atualiza.config(cursor='hand2')
+        self.bt_atualiza.config(overrelief='groove')
+        #self.bt_atualiza.config(command=self.get_dados)
+        self.bt_atualiza.place(x=405,y=160)
+
+        self.bt_deleta = Button(self.frame_get_dados,text='Excluir',font=('arial 13'),width=20,bg='orange',fg='black')
+        self.bt_deleta.config(cursor='hand2')
+        self.bt_deleta.config(overrelief='groove')
+        #self.bt_deleta.config(command=self.get_dados)
+        self.bt_deleta.place(x=605,y=160)
 
     def treev_tabela(self):
 
