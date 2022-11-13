@@ -15,6 +15,7 @@ class Teste_entry:
         self.b.pack()
 
     def vas(self,*s):
+
         print('ok')
         res = int(self.log.get())
         print(res)
