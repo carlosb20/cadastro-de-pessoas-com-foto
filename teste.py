@@ -17,10 +17,11 @@ class Teste_entry:
     def vas(self,*s):
 
         print('ok')
-        res = int(self.log.get())
-        print(res)
+        res = self.log.get()
+        print(len(res))
+        res = len(res)
         
-        if res == 123:
+        if res == 3:
             print('sim')
             self.valor.set('.')
 
