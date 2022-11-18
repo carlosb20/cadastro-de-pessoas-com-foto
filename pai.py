@@ -124,6 +124,9 @@ class Cadastro(Tk):
             self.entry_rg.delete(0,'end')
             self.entry_egmail.delete(0,'end')
             self.entry_nome.focus()
+
+            self.label_foto.config(image=self.origem)
+
         else:
             messagebox.showerror('ERRO !','Preencha o Espaço Vazio')
 

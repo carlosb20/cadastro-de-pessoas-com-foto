@@ -8,7 +8,8 @@ class Teste_entry:
         
 
         self.log = Entry(self.root,textvariable=self.valor)
-        self.log.bind("<KeyRelease>",self.vas)
+        #self.log.bind("<KeyRelease>",self.vas)
+        self.log.bind("<KeyPress>",self.vas)
         self.b = Entry(self.root)
 
         self.log.pack()
