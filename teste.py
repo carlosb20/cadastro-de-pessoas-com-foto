@@ -4,6 +4,8 @@ class Teste_entry:
     def __init__(self,master):
         self.root = master
 
+        self.sinal = ''
+
         self.valor = StringVar()
         
 
@@ -20,11 +22,14 @@ class Teste_entry:
         print('ok')
         res = self.log.get()
         print(len(res))
-        res = len(res)
+        re = len(res)
         
-        if res == 3:
+        if re == 2:
+
+            self.sinal = str(res) + '.'
+
             print('sim')
-            self.valor.set('.')
+            self.valor.set(self.sinal)
 
 
 
