@@ -19,10 +19,18 @@ class Teste(Tk):
         if re == 3:
             print('passou')
             self.pega.set(str(res) +'.')
-            pyautogui.press['left']
+            pyautogui.press(['right'])
            
-        
-
+        if re == 7:
+            print('passou')
+            self.pega.set(str(res) +'.')
+            pyautogui.press(['right'])
+           
+        if re == 11:
+            print('passou')
+            self.pega.set(str(res) +'-')
+            pyautogui.press(['right'])
+           
 
 if __name__=='__main__':
     res = Teste()
