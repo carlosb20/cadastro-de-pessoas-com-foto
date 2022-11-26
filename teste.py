@@ -60,7 +60,13 @@ class Teste(Tk):
         print(self.novo)
 
     def coloca_ponto(self):
-        pass
+        print(self.novo)
+
+        print(self.novo[0:3])
+
+        self.novo = (self.novo[0:3] + '.' + self.novo[3:6] + '.' + self.novo[6:9] + '-' + self.novo[9:11])
+
+        self.traco.set(self.novo)
 
 if __name__=='__main__':
     res = Teste()

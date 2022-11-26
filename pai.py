@@ -55,6 +55,7 @@ class Cadastro(Tk):
         self.label_cpf.place(x=5,y=40)
 
         self.entry_cpf = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_cpf.bind('<KeyRelease>',self.eventos)
         self.entry_cpf.place(x=60,y=40)
 
         self.label_rg = Label(self.frame_get_dados,text='RG',bg='blue',fg='white',font=('arial 12'))
@@ -111,6 +112,11 @@ class Cadastro(Tk):
         self.trevv.place(x=1,y=391,relheight=0.39)
         self.barra.place(x=784,y=393,relheight=0.38,relwidth=0.02)
 
+    def eventos(self,s):
+        res = self.entry_cpf.get()
+        res = len(res)
+        if res == 14:
+            self.entry_rg.focus()
         
     def get_dados(self):
         if self.entry_nome.get() != '' and self.entry_cpf.get() != '' and self.entry_rg.get() != '' and self.entry_egmail.get() != '' :
