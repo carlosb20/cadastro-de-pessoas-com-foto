@@ -3,6 +3,7 @@ from tkinter.filedialog import askopenfilename
 from PIL import Image,ImageTk
 from tkinter import ttk
 from tkinter import messagebox
+import pyautogui
 
 foto = b''
 
@@ -41,6 +42,8 @@ class Cadastro(Tk):
 
     def frame_dados(self):
 
+        self.cp = StringVar()
+
         self.frame_get_dados = Frame(self,width=600,height=200,bg='blue')
         self.frame_get_dados.pack(fill='x')
 
@@ -54,7 +57,7 @@ class Cadastro(Tk):
         self.label_cpf = Label(self.frame_get_dados,text='Cpf',bg='blue',fg='white',font=('arial 12'))
         self.label_cpf.place(x=5,y=40)
 
-        self.entry_cpf = Entry(self.frame_get_dados,font=('arial 13'),width=30)
+        self.entry_cpf = Entry(self.frame_get_dados,font=('arial 13'),width=30,textvariable=self.cp)
         self.entry_cpf.bind('<KeyRelease>',self.eventos)
         self.entry_cpf.place(x=60,y=40)
 
@@ -114,8 +117,21 @@ class Cadastro(Tk):
 
     def eventos(self,s):
         res = self.entry_cpf.get()
-        res = len(res)
-        if res == 14:
+        re = len(res)
+
+        if re == 3:
+            self.cp.set(str(res) +'.')
+            pyautogui.press(['right'])
+
+        if re == 7:
+            self.cp.set(str(res) +'.')
+            pyautogui.press(['right'])
+
+        if re == 11:
+            self.cp.set(str(res) +'-')
+            pyautogui.press(['right'])
+
+        elif  re > 13:
             self.entry_rg.focus()
         
     def get_dados(self):
@@ -149,6 +165,7 @@ class Cadastro(Tk):
             img = img.resize((150,150))
             img = ImageTk.PhotoImage(img)
             self.label_foto['image'] = img
+            print(path)
 
     def deleta_img(self):
         self.label_foto['image'] = self.origem
